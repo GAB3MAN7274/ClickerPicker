@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Picker Clicker</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h4>Click this button to Begin</h4>
+        <button id="1">CLICK ME</button>
+        <button id="2" class="hidden">2X MULTIPLIER = 150 POINTS</button>
+        <button id="3" class="hidden">3X MULTIPLIER = 3,000 POINTS</button>
+        <button id="4" class="hidden">10X MULTIPLIER = 100,000,000,000 POINTS</button>
+        <p id="score">0</p>
+        <h3>Current score to get Infinity</h3>
+    </div>
+</div>
+<script>
+    const content = document.querySelector('.content');
+    const clickMe = document.getElementById('1');
+    const score = document.getElementById('score');
+    const multiplier = document.getElementById('2');
+    const multiplier2 = document.getElementById('3');
+    const multiplier3 = document.getElementById('4');
+
+
+    let clickValue = 1;
+    let currentScore = 0;
+    let upgradeCost = 150;
+    let upgradeCost2 = 3000;
+    let upgradeCost3 = 100000000000
+
+
+    clickMe.addEventListener('click', function(e){
+        currentScore += clickValue
+        score.innerText = currentScore
+        checkWin()
+    });
+
+
+    multiplier.addEventListener('click', function(e){
+        buyUpgrade(upgradeCost, 2)
+    });
+
+
+    multiplier2.addEventListener('click', function(e){
+        buyUpgrade(upgradeCost2, 3)
+    });
+
+
+    multiplier3.addEventListener('click', function(e){
+        buyUpgrade(upgradeCost3, 10)
+    });
+
+
+    if(currentScore <= upgradeCost ){
+        multiplier.classList.remove('hidden')
+    }else{
+        multiplier.classList.add('hidden')
+    }
+
+
+    if(currentScore <= upgradeCost2){
+        multiplier2.classList.remove('hidden')
+    }else{
+        multiplier2.classList.add('hidden')
+    }
+
+
+    if(currentScore <= upgradeCost3){
+        multiplier3.classList.remove('hidden')
+    }else{
+        multiplier3.classList.add('hidden')
+    }
+    
+
+    function buyUpgrade(cost, upgradeAmt){
+        clickValue *= upgradeAmt;
+        currentScore -= cost;
+        score.innerText = currentScore
+    }
+
+    function checkWin(){
+        if (currentScore >= Infinity){
+            score.innerText = "You Win!"
+        }
+    }
+
+</script>
+</body>
+</html>
