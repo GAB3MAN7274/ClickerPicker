@@ -15,6 +15,8 @@
         <button id="4" class="hidden">10X MULTIPLIER = 100,000,000,000 POINTS</button>
         <p id="score">0</p>
         <h3>Current score to get Infinity</h3>
+        <div></div>
+        <button id="CLEAR">CLEAR</button>
     </div>
 </div>
 <script>
@@ -24,6 +26,8 @@
     const multiplier = document.getElementById('2');
     const multiplier2 = document.getElementById('3');
     const multiplier3 = document.getElementById('4');
+
+    const clear = document.getElementById('CLEAR');
 
 
     let clickValue = 1;
@@ -54,6 +58,11 @@
 
     multiplier3.addEventListener('click', function(e){
         buyUpgrade(upgradeCost3, 10)
+    });
+
+
+    clear.addEventListener('click', function(e){
+        removeScore();
     });
 
 
@@ -92,12 +101,11 @@
 
     function checkWin2(){
         if(currentScore >= Infinity){
-            removeButtons()
         }
     }
 
-    function removeButtons(){
-
+    function removeScore(){
+        return(currentScore >= score.innerText)
     }
 </script>
 </body>
