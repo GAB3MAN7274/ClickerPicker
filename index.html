@@ -37,11 +37,13 @@
         currentScore += clickValue
         score.innerText = currentScore
         checkWin()
+        checkWin2()
     });
 
 
     multiplier.addEventListener('click', function(e){
         buyUpgrade(upgradeCost, 2)
+
     });
 
 
@@ -88,6 +90,15 @@
         }
     }
 
+    function checkWin2(){
+        if(currentScore >= Infinity){
+            removeButtons()
+        }
+    }
+
+    function removeButtons(){
+
+    }
 </script>
 </body>
 </html>
