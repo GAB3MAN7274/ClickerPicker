@@ -16,7 +16,6 @@
         <p id="score">0</p>
         <h3>Current score to get Infinity</h3>
         <div></div>
-        <button id="CLEAR">CLEAR</button>
     </div>
 </div>
 <script>
@@ -41,7 +40,6 @@
         currentScore += clickValue
         score.innerText = currentScore
         checkWin()
-        checkWin2()
     });
 
 
@@ -58,11 +56,6 @@
 
     multiplier3.addEventListener('click', function(e){
         buyUpgrade(upgradeCost3, 10)
-    });
-
-
-    clear.addEventListener('click', function(e){
-        removeScore();
     });
 
 
@@ -97,15 +90,6 @@
         if (currentScore >= Infinity){
             score.innerText = "You Win!"
         }
-    }
-
-    function checkWin2(){
-        if(currentScore >= Infinity){
-        }
-    }
-
-    function removeScore(){
-        return(currentScore >= score.innerText)
     }
 </script>
 </body>
